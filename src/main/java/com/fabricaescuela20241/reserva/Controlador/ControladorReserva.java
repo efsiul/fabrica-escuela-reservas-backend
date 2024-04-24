@@ -1,5 +1,6 @@
 package com.fabricaescuela20241.reserva.Controlador;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ public class ControladorReserva {
 
     @PostMapping("/crearReserva")
     public Reserva crearReserva(@RequestBody Reserva reserva) {
+        reserva.setFechaReserva(new java.sql.Date(new Date().getTime())); 
         return servicioReserva.guardarReserva(reserva);
     }
 
